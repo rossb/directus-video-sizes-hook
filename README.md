@@ -6,29 +6,29 @@ Unlike images, videos get no width and height attributes on upload. This extensi
 
 ## Requirements
 
-Requires Directus to be running in an environment with `ffmpeg` installed, and for the user Directus runs as to have permissions to run it. Specifically, the extension uses `ffprobe`, which is part of of a standard `ffmpeg` installation.
+Requires Directus to be running in an environment with `ffmpeg` installed, and for the user Directus runs as to have permissions to run it. The extension uses `ffprobe`, which is part of a standard `ffmpeg` installation.
 
 ## Installation
 
 1. Download repo.
 2. Run `npm build` to compile.
-3. Move the entire repo folder into the `/extensions` directory of your Directus installation.
+3. Move the repo folder into the `/extensions` directory of your Directus installation.
 4. Restart Directus.
 
-Check the hook is running under Settings > Extensions. It should show under the Hooks heading as enabled. If not, you probably need to install `ffmpeg` and make it available to the user Directus runs under.
+Check the hook is running under Settings > Extensions. It should show under Hooks. If not, you probably need to install `ffmpeg` to your server or container and make it available to the user Directus runs as.
 
 ## Usage
 
 ### Auto-dimensions
 
-Polls locally-stored videos every 10 seconds for new videos, and automatically detects and adds dimensions.
+The extension polls for new locally-stored videos every 10 seconds and automatically detects and adds dimensions.
 
 ### Manual dimensions via tag
 
-For CDN hosted videos, dimensions can’t be auto-detected. Add a tag to the video asset in File Library in the format `reprocess:widthxheight` where width and height are integers, e.g. `reprocess:1920x1080`. The hook will add the width and height you specify.
+For CDN hosted videos, dimensions can’t be auto-detected by ffmpeg. Add a tag to the video asset in File Library in the format `reprocess:<width>x<height>` where width and height are integers, e.g. `reprocess:1920x1080`. The hook will add the width and height you specify in the tag on next run.
 
-You can add manual tags to locally-hosted videos, if needed.
+You can also add manual dimensions via tags to locally-hosted videos, if needed.
 
 ### Reprocessing
 
-If you want to flag a locally-hosted video to have its dimensions re-calculated, add the tag `reprocess`. The width and height will be auto-calculated on the next run.
+To flag a locally-hosted video to have its dimensions re-calculated, add the tag `reprocess`. The width and height will be auto-calculated on the next run.
