@@ -1,6 +1,6 @@
 {
 	"name": "directus-video-sizes-hook",
-	"description": "Directus Hook extension to add width & height to videos in File Library.",
+	"description": "Directus Hook extension to add width & height to File Libray videos.",
 	"icon": "extension",
 	"version": "1.0.0",
 	"keywords": [
