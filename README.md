@@ -29,6 +29,8 @@ For CDN hosted videos, dimensions can’t be auto-detected by ffmpeg. Add a tag 
 
 You can also add manual dimensions via tags to locally-hosted videos, if needed.
 
-### Reprocessing
+### Reprocessing via tag
 
 To flag a locally-hosted video to have its dimensions re-calculated, add the tag `reprocess`. The width and height will be auto-calculated on the next run.
+
+Once a video is processed, the tag is removed.
